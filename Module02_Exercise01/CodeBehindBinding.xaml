@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Module02_Exercise01.CodeBehindBinding" Title="View to Code-Behind Data Binding">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="View to Code-Behind Data Binding"
+                   Rotation="{Binding Source ={x:Reference slider}, Path= Value}"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand"
+                   x:Name="rotatingLabel"/>
+
+            <Label x:Name="displayRotation"
+                   Text="This is to display the rotation"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand" />
+
+            <Slider x:Name ="slider"
+                    Maximum="360"
+                    MinimumTrackColor="Purple"
+                    MaximumTrackColor="#BF5700" 
+                    ValueChanged ="OnSliderValueChanged" />
+
+            
+
+            <Entry x:Name="displayName"/>
+            <Entry Text="{Binding Text, Source = {x:Reference displayName}}"/>
+
+            <Label Text="Year:" 
+                   FontAttributes="Bold"/>
+            <Label Text="{Binding year}" />
+
+            <Label Text="Hobby:"
+                   FontAttributes="Bold"/>
+            <Label Text="{Binding hobby}"  />
+
+            <Label Text="Favorite Game:" 
+                   FontAttributes="Bold"/>
+            <Label Text="{Binding favgame}"/>
+
+            <Label Text="Favorite Kdrama:"
+                   FontAttributes="Bold"/>
+            <Label Text="{Binding favkdrama}" />
+
+            <Button Text="Display Your Name" Clicked="MyName"/>
+            
+            
+            <Button Text="Back to Main Page" Clicked="Clicked_MainPage"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

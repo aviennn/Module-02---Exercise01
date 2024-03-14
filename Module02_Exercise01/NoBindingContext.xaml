@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Module02_Exercise01.NoBindingContext" Title="Without Binding Context">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to No Binding Context"
+                    VerticalOptions="CenterAndExpand"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    HorizontalOptions="CenterAndExpand" />
+
+            <Label Text ="Rate this Anime" 
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
+
+            <StackLayout HeightRequest="5"></StackLayout>
+
+            <Image Source="https://down-ph.img.susercontent.com/file/605133d4ceb585af22fa04fe3a861c81"
+                   Aspect="AspectFit"
+                   HorizontalOptions="Center" />
+
+            <StackLayout HeightRequest="10"></StackLayout>
+
+            <Label Text="{Binding  Text,Source = {x:Reference comment}}"
+                   FontSize="Medium"
+                   HorizontalOptions="Center"
+                   TextColor="Purple"/>
+
+            <Entry x:Name="comment"
+                   Placeholder="Input your Comments here"/>
+
+            <Label Text="Rate it"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand" />
+
+            <Label x:Name="ratingLabel"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand" />
+
+            <Slider x:Name="ratingSlider"
+                    Maximum="10"
+                    Minimum="0"
+                    MaximumTrackColor="Red"
+                    MinimumTrackColor="Green" 
+                    ValueChanged="OnSliderValueChanged" />
+
+
+            <StackLayout HeightRequest="10"></StackLayout>
+            
+            <Image Source="https://t4.ftcdn.net/jpg/05/75/05/89/360_F_575058952_PruxOgqpQZC7TnOFKTugYVi3IIiMEJeT.jpg"
+                   Aspect="AspectFit"
+                   HeightRequest="100"
+                   HorizontalOptions="Center">
+                
+                <Image.Rotation>
+                    <Binding Source="{x:Reference ratingSlider}" Path="Value" />
+                </Image.Rotation>
+            </Image>
+
+            <Button Text="Back to Main Page" Clicked="Clicked_MainPage"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

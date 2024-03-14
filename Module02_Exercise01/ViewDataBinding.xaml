@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Module02_Exercise01.ViewDataBinding" Title="View to View Data Binding"> 
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to View To View Data Binding"
+                   TextColor="#BF5700"
+                   BindingContext="{x:Reference Name=firstElement}"
+                   Rotation="{Binding Source ={x:Reference firstElement}, Path= Value}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand" />
+
+            <Slider x:Name="firstElement"
+                    Maximum="360"
+                    VerticalOptions="CenterAndExpand"
+                    MinimumTrackColor="Purple"
+                    MaximumTrackColor="#BF5700" />
+
+             <Label BindingContext="{x:Reference firstElement}"
+                    Text="{Binding Value, StringFormat='The angle is {0:F0} degrees'}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    TextColor="Purple"/>
+
+
+            <Label Text="Entry and Label One Way, Input Text"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#BF5700"/>
+            
+            <Label Text="{Binding  Text,Source = {x:Reference displayLabel}, Mode=OneWay}"
+                   FontSize="Medium"
+                   HorizontalOptions="Center"
+                   TextColor="Purple"/>
+            
+            <Entry x:Name="displayLabel"
+                   Text= ""/>
+            
+            <StackLayout HeightRequest="30"></StackLayout>
+            
+            <Label Text="Entry and Entry One Way"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#BF5700"   />
+            
+            <Entry x:Name="myEntry"/>
+            <Entry Text="{Binding Text, Source = {x:Reference myEntry}, Mode=OneWay}"/>
+
+
+
+            <Button Text="Back to Main Page" Clicked="Clicked_MainPage"/>
+                
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

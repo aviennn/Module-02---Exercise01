@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Module02_Exercise01.MainPage" Title="Avien Flaire C. Batul">
+
+    <StackLayout>
+        <Frame BackgroundColor="black" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to the Main Page!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Button Text="View to View Data Binding" Clicked="Clicked_ViewDataBinding"/>
+        <Button Text="Code Behind Data Binding" Clicked="Clicked_CodeBehindBinding"/>
+        <Button Text="Data Binding without BindingContext" Clicked="Clicked_NoBindingContext"/>
+    </StackLayout>
+
+</ContentPage>
